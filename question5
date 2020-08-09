@@ -1,0 +1,55 @@
+/* You are given a string (you need to take it input from user), the task is to encrypt this string
+using # and $ symbols, alternatively. While encrypting the message the encrypted format must repeat
+the symbol as many times as the letter position in alphabetical order (consider the string as case
+insensitive).
+Input: string = "Ab"
+Output: #$$
+Explanation: Position of 'A' in alphabetical order is 1 and is at odd position in
+string so encrypted message will have 1 ‘#’. Similarly, position of 'B' in
+alphabetical order is 2 and is at even position in string so encrypted message
+will have 2 ‘$‘. Therefore, the output will be “#$$“
+Input: string = "CDE"
+Output: ###$$$$##### */
+
+#include <stdio.h>
+#include <string.h>
+
+void encrypt(char str1[100])
+{
+
+    // evenPos is for storing encrypting
+    // char at evenPosition
+    // oddPos is for storing encrypting
+    // char at oddPosition
+    char evenPos = '$', oddPos = '#';
+
+    int repeat, ascii;
+
+    for (int i = 0; i <= strlen(str1); i++)
+        {
+
+
+        ascii = str1[i];
+        repeat = ascii >= 97 ? ascii - 96 : ascii - 64;
+
+        for (int j = 0; j < repeat; j++)
+            {
+
+            if (i % 2 == 0)
+                printf("%c", oddPos);
+            else
+                printf("%c", evenPos);
+        }
+    }
+}
+
+
+void main()
+{
+    char str1[100];
+    printf("input the sting:  ");
+    gets(str1);
+
+    // Encrypt the String
+    encrypt(str1);
+}
