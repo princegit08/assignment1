@@ -1,0 +1,42 @@
+/*Write a C/C++ program to encrypt and decrypt the string using Caesar Cypher Algorithm. While
+encrypting the given string, 5 is added to the ASCII value of the characters. Similarly, for decrypting the
+string, 5 is subtracted from the ASCII value of the characters to print an original string. Example - Input
+String - hello, Encrypted String - mjqqt */
+
+#include <stdio.h>
+
+int main()
+{
+   int i, x;
+   char str[100];
+
+   printf("\ Input a string:  ");
+   gets(str);
+
+   printf("\n Choose following options:\n");
+   printf("1 = Encrypt the string.\n");
+   printf("2 = Decrypt the string.\n");
+   scanf("%d", &x);
+
+   //using switch case:
+   switch(x)
+   {
+   case 1:
+      for(i = 0; (i < 100 && str[i] != '\0'); i++)
+        str[i] = str[i] + 5; //the key for encryption is 5 that is added to ASCII value
+
+      printf("\nEncrypted string: %s\n", str);
+      break;
+
+   case 2:
+      for(i = 0; (i < 100 && str[i] != '\0'); i++)
+        str[i] = str[i] - 5; //the key for encryption is 5 that is subtracted to ASCII value
+
+      printf("\nDecrypted string: %s\n", str);
+      break;
+
+   default:
+      printf("\nError\n");
+   }
+   return 0;
+}
