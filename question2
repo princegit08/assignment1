@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+// Write a C/C++ program to check whether a string is palindrome or not
+void checkpalindrome(char str[])
+{
+    int l = 0;
+    int h = strlen(str) - 1;
+
+    while (h > l)
+    {
+        if (str[l++] != str[h--])
+        {
+            printf("\n%s is not a Palindrome\n", str);
+            return;
+        }
+    }
+    printf("\n%s is a palindrome", str);
+}
+
+int main()
+{
+    char strng[10];
+    printf("input the string");
+    gets(strng);
+    checkpalindrome(strng);
+    return 0;
+}
+
